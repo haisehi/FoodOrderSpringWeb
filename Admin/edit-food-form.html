@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Food</title>
+    <link rel="stylesheet" href="./asset/css/Edit-Food.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="body-right">
+            <div class="header">
+                <img src="img/logo.png" alt="Logo" style="width: 100px;">
+            </div>
+            <div class="body">
+                <div class="content">
+                    <form method="post" action="/api/v1/auth/foods" enctype="multipart/form-data">
+                        <input type="hidden" name="id_food" value="<!-- Food ID here -->">
+                        <p>
+                            <input type="file" name="image_food" id="file-input">
+                        </p>
+                        <p>
+                            <input type="text" name="name_food" placeholder="Name of Food"
+                                value="<!-- Food Name here -->">
+                        </p>
+                        <p>
+                            <input type="number" step="0.01" name="price" placeholder="Price"
+                                value="<!-- Food Price here -->">
+                        </p>
+                        <p>
+                            <label for="category">Select Category:</label>
+                            <select id="category" name="id_categories">
+                                <!-- Loop through categories -->
+                                <!--
+                                <option value="<!-- Category ID here -->"
+                                    <!-- Selected attribute here -->><!-- Category Name here --></option>
+                                -->
+                            </select>
+                        </p>
+                        <p>
+                            <button class="Add-bnt" type="submit" name="action" value="update">SAVE CHANGES</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to handle page functionality -->
+    <script src="../auth/auth.js"></script>
+    <script>
+        // Example JavaScript to prefill form with existing food data
+        async function fetchFoodData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const foodId = urlParams.get('id_food');
+
+            if (foodId) {
+                try {
+                    const response = await fetch(`/api/v1/auth/foods/${foodId}`);
+                    const food = await response.json();
+
+                    if (food) {
+                        document.querySelector('input[name="id_food"]').value = food.idFood;
+                        document.querySelector('input[name="name_food"]').value = food.nameFood;
+                        document.querySelector('input[name="price"]').value = food.price;
+
+                        const categorySelect = document.querySelector('select[name="id_categories"]');
+                        // Assuming you have a list of categories available
+                        // Populate category options here
+                        // Example: categorySelect.value = food.categoryFood.id;
+                    }
+                } catch (error) {
+                    console.error('Error fetching food data:', error);
+                }
+            }
+        }
+
+        fetchFoodData(); // Initial fetch on page load
+    </script>
+</body>
+
+</html>

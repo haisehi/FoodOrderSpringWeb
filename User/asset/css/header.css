@@ -1,0 +1,107 @@
+@charset "UTF-8";
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html, body{
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+:root{
+    --white-color: white;
+    --grey:#ccc;
+    --logo-size: 4.063rem;
+}
+.wrapper_header {
+    width: 100%;
+    min-height: 6.25rem;
+    border-bottom-style: solid;
+    border-bottom-color: var(--grey);
+    background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+.header_section{
+    background-color: var(--white-color);
+    width: 62.50rem;
+    margin: 0px 150px;
+    padding: 11px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+/* navbar header left */
+.navbar_headerLeft{
+    width: 60%;
+}
+.logo{
+    max-height: var(--logo-size);
+}
+.navbar_wrp_item{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+.navbar_item{
+    font-size: 1rem;
+    font-weight: 600;
+    list-style: none;
+}
+/* navbar header right */
+.navbar_headerRight{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    justify-items: center;
+}
+
+.icon_navbarHeaderRight{
+    font-size: 1.50rem;
+    margin: 0 10px;
+}
+.icon_header_taskbar{
+    background-color: transparent;
+    border: none;
+}
+
+/* header.css */
+
+/* ... (CSS code mà bạn đã có) ... */
+
+/* Responsive Web Design */
+@media screen and (max-width: 768px) {
+    .header_section {
+        margin: 0 20px;
+    }
+
+    .navbar_headerLeft {
+        width: 50%;
+    }
+
+    .navbar_headerRight {
+        width: 50%;
+        justify-content: space-between;
+    }
+
+    .navbar_wrp_item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar_item {
+        margin-bottom: 10px;
+    }
+
+    .icon_navbarHeaderRight {
+        font-size: 1.25rem;
+    }
+}

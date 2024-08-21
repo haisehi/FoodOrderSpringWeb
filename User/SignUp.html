@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Account</title>
+    <link href="./asset/css/content.css" rel="stylesheet">
+    <link href="./asset/css/login.css" rel="stylesheet">
+    <link href="./asset/css/header.css" rel="stylesheet">
+    <link href="./asset/css/footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<style>
+    /* CSS for alert box */
+    .alert-box {
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        text-align: center;
+    }
+
+    .close-btn {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #721c24;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <!-- Header -->
+    <!-- Replace with the static HTML for header content -->
+    <div id="headerPlaceholder"></div>
+    <script src="./header/header.js"></script>
+
+    <div class="wrapper_loginOrSignUp">
+        <img src="./asset/img/signin.jpg" alt="signUp" class="img_login">
+        <div class="form">
+            <form class="form_account" id="registerForm">
+                <label class="label_account">Create Your Account</label>
+                <div class="label-form_account">
+                    <input type="text" id="firstname" class="input-form_account" name="firstname" required>
+                    <label for="firstname" class="label_input">First Name:</label>
+                </div>
+                <div class="label-form_account">
+                    <input type="text" id="lastname" class="input-form_account" name="lastname" required>
+                    <label for="lastname" class="label_input">Last Name:</label>
+                </div>
+                <div class="label-form_account">
+                    <input type="text" id="phonenumber" class="input-form_account" name="phonenumber" required>
+                    <label for="phonenumber" class="label_input">Phone Number:</label>
+                </div>
+                <div class="label-form_account">
+                    <input type="text" id="email" class="input-form_account" name="email" required>
+                    <label for="email" class="label_input">Email:</label>
+                </div>
+                <div class="label-form_account">
+                    <input type="text" id="gender" class="input-form_account" name="gender" required>
+                    <label for="gender" class="label_input">Gender:</label>
+                </div>
+                <div class="label-form_account">
+                    <input type="date" id="date" class="input-form_account" name="date" required>
+                    <label for="date" class="label_input">Date:</label>
+                </div>
+                <div class="label-form_account">
+                    <input type="password" id="password" class="input-form_account" name="password" required>
+                    <label for="password" class="label_input">Password:</label>
+                </div>
+                <p class="font-form_account">
+                    <input type="checkbox" id="acceptPolicy" name="acceptPolicy" required>
+                    I have read and accepted the Operation Policy and Policy on Information Confidentiality
+                </p>
+                <button class="button_account_signup" type="submit">Sign up</button>
+                <!-- <input type="submit" class="button_account_signup" value="signup"> -->
+                <p class="font-form_account font-signin">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script src="../auth/register.js" ></script>
+
+    <!-- Footer -->
+    <!-- Replace with the static HTML for footer content -->
+    <div class="wrapper_footer">
+        <a href="#"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
+        <div class="wrapper_footer-item">
+            <span>Our Food</span>
+            <a class="footer_item" href="menu.html?id=category1">Category 1</a>
+            <a class="footer_item" href="menu.html?id=category2">Category 2</a>
+            <!-- Add more categories as needed -->
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Contact</span>
+            <a class="footer_item" href="#">Order Tracker</a>
+            <a class="footer_item" href="#">Find a KFC</a>
+            <a class="footer_item" href="#">Contact Us</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Policy</span>
+            <a class="footer_item" href="#">Operation Policy</a>
+            <a class="footer_item" href="#">Terms And Conditions</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <a class="footer_item" href="#"><i class='bx bxl-facebook'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-twitter'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-tiktok'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </div>
+    <!-- copyright -->
+    <div class="copyright">
+        <p>&#169;Copyright © 2023 KFC Vietnam</p>
+    </div>
+</body>
+
+</html>

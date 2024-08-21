@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Store</title>
+    <link href="./asset/css/content.css" rel="stylesheet">
+    <link href="./asset/css/findStore.css" rel="stylesheet">
+    <link href="./asset/css/header.css" rel="stylesheet">
+    <link href="./asset/css/footer.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- Replace with the static HTML for header content -->
+    <!-- Header -->
+    <!-- Replace with the static HTML for header content -->
+    <div id="headerPlaceholder"></div>
+    <script src="./header/header.js"></script>
+
+    <div class="wrapper">
+        <div id="map" class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49768.54632730844!2d108.20375057611707!3d16.01087928721813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421994b9527933%3A0xc2ed1cd1bda8154a!2zS0ZDIExvdHRlIMSQw6AgTuG6tW5n!5e0!3m2!1svi!2s!4v1694446470296!5m2!1svi!2s"
+                aria-selected="true"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                width="100%"
+                height="950px">
+            </iframe>
+        </div>
+
+        <div class="wrapper_FindStore">
+            <form method="POST" class="form_FindStore">
+                <label class="label-form_FindStore">Contact Us</label>
+                <div class="wp-form_FindStore">
+                    <input type="text" id="name" class="input-form_FindStore" name="name" required />
+                    <label for="name" class="label_input">Name:</label>
+                </div>
+                <div class="wp-form_FindStore">
+                    <input type="number" id="phone" class="input-form_FindStore" name="phone" required />
+                    <label for="phone" class="label_input">Phone Number:</label>
+                </div>
+                <div class="wp-form_FindStore">
+                    <input type="text" id="address" class="input-form_FindStore" name="address" required />
+                    <label for="address" class="label_input">Address:</label>
+                </div>
+                <button type="submit" class="button_form_FindStore">Order</button>
+            </form>
+            <img src="./asset/img/KFC-5.jpg" alt="KFC" class="img_FindStore" />
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Replace with the static HTML for footer content -->
+    <div class="wrapper_footer">
+        <a href="#"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
+        <div class="wrapper_footer-item">
+            <span>Our Food</span>
+            <a class="footer_item" href="menu.html?id=category1">Category 1</a>
+            <a class="footer_item" href="menu.html?id=category2">Category 2</a>
+            <!-- Add more categories as needed -->
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Contact</span>
+            <a class="footer_item" href="#">Order Tracker</a>
+            <a class="footer_item" href="#">Find a KFC</a>
+            <a class="footer_item" href="#">Contact Us</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Policy</span>
+            <a class="footer_item" href="#">Operation Policy</a>
+            <a class="footer_item" href="#">Terms And Conditions</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <a class="footer_item" href="#"><i class='bx bxl-facebook'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-twitter'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-tiktok'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </div>
+    <!-- copyright -->
+    <div class="copyright">
+        <p>&#169;Copyright © 2023 KFC Vietnam</p>
+    </div>
+</body>
+
+</html>

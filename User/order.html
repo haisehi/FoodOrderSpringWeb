@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="./asset/css/header.css">
+    <link rel="stylesheet" href="./asset/css/footer.css">
+    <link rel="stylesheet" href="./asset/css/order.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="headerPlaceholder"></div>
+    <script src="./header/header.js"></script>
+
+    <section class="wrapper_cttk">
+        <div class="content-left">
+            <img class="img_user" src="./asset//img/logo.png" alt="User Image">
+            <h2>XIN CHÀO !!! <span id="username"></span></h2>
+            <h3>
+                <u><a href="login.html" id="logoutButton">Đăng xuất</a></u>
+            </h3>
+            <h4><a href="order.html">Đơn hàng đã đặt</a></h4>
+            <h4><a href="#">Địa chỉ của bạn</a></h4>
+            <h4><a href="infoAcc.html">Chi tiết tài khoản</a></h4>
+        </div>
+
+        <div class="content-right">
+            <h2>Đơn hàng đã đặt</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID Payment</th>
+                        <th>Name Food</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Quantity</th>
+                        <th>Address</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableBody">
+                    <!-- Rows will be populated dynamically using JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="wrapper_footer">
+        <a href="#"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
+        <div class="wrapper_footer-item">
+            <span>Our Food</span>
+            <a class="footer_item" href="menu.html?id=category1">Category 1</a>
+            <a class="footer_item" href="menu.html?id=category2">Category 2</a>
+            <!-- Add more categories as needed -->
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Contact</span>
+            <a class="footer_item" href="#">Order Tracker</a>
+            <a class="footer_item" href="#">Find a KFC</a>
+            <a class="footer_item" href="#">Contact Us</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Policy</span>
+            <a class="footer_item" href="#">Operation Policy</a>
+            <a class="footer_item" href="#">Terms And Conditions</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <a class="footer_item" href="#"><i class='bx bxl-facebook'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-twitter'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-tiktok'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </div>
+    <!-- copyright -->
+    <div class="copyright">
+        <p>&#169;Copyright © 2023 KFC Vietnam</p>
+    </div>
+
+    <!-- --------------------- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get customerId from localStorage
+            const customerId = localStorage.getItem('id_customer');
+            fetch(`http://localhost:8080/api/v1/auth/cart/payments?customerId=${customerId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('orderTableBody');
+                    data.forEach(payment => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${payment.idPayment}</td>
+                            <td>${payment.nameFood}</td>
+                            <td>${payment.price.toFixed(2)}</td>
+                            <td>${payment.total.toFixed(2)}</td>
+                            <td>${payment.quantity}</td>
+                            <td>${payment.address}</td>
+                            <td>${payment.time ? new Date(payment.time).toLocaleString() : 'N/A'}</td>
+                            <td>${payment.statusPay === 0 ? 'Not Processed' : 'Processed'}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching payments:', error));
+        });
+    </script>
+    <!-- Authentication protection -->
+    <script src="../auth/logout.js"></script>
+    <script src="../auth/auth.js"></script>
+</body>
+
+</html>

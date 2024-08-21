@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* restaurant system file */
+.map{
+	border: none;
+	z-index: -1;
+}
+.wrapper_FindStore{
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	margin:50px 0;
+	margin-top: 120px;
+}
+.form_FindStore{
+	margin-right:2% ;
+	width: 520px;
+}
+.label-form_FindStore{
+	font-family: sans-serif;
+	font-size: 1.8rem;
+	line-height: 50px;
+	font-weight: 800;
+}
+.wp-form_FindStore{
+	width: 100%;
+	display: flex;
+	margin : 25px 0;
+	padding: 5px;
+	position: relative;
+}
+.input-form_FindStore{
+	width: 100%;
+	border:none;
+	line-height: 44px;
+	background-color: transparent;
+}
+.input-form_FindStore:focus{
+	border-bottom: 2px solid #e4002b;
+}
+.button_form_FindStore{
+	width: 100%;
+	padding: 10px 0;
+	margin:30px 0;
+	min-height: 47px;
+	border: none;
+	border-color: transparent;
+	border-radius: 25px;
+	background-color: #e4002b;
+	color: white;
+	font-weight: 600;
+	font-size: 15px;
+	cursor: pointer;
+}
+.img_FindStore{
+	width: 526px;
+	height: 100%;
+	object-fit: fill;
+	margin-left:2% ;
+	border-radius: 10px;
+}
+.label_input{
+	color: #313339cf;
+	font-size: 16px;
+	position: absolute;
+	top: 20%;
+	left: 0;
+}
+.input-form_FindStore:focus ~.label_input{
+	font-size: 10px;
+}

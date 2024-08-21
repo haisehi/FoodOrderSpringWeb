@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link href="./asset/css/content.css" rel="stylesheet">
+        <link href="./asset/css/login.css" rel="stylesheet">
+        <link href="./asset/css/header.css" rel="stylesheet">
+        <link href="./asset/css/footer.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <!-- Replace with the static HTML for header content -->
+        <div id="headerPlaceholder"></div>
+        <script src="./header/header.js"></script>
+
+        <div class="wrapper_loginOrSignUp">
+            <img src="./asset/img/signin.jpg" alt="signIn" class="img_login">
+            <div class="form">
+                <form class="form_account" onsubmit="event.preventDefault(); login();">
+                    <label class="label_account">Login</label>
+                    <div class="label-form_account">
+                        <input type="text" id="email" class="input-form_account" name="email" required>
+                        <label for="email" class="label_input">Email:</label>
+                    </div>
+                    <div class="label-form_account">
+                        <input type="password" id="password" class="input-form_account" name="password" required>
+                        <label for="password" class="label_input">Password:</label>
+                    </div>
+                    <p class="forgot_pwd font-form_account js-forgot-pass">
+                        <a href="#">Forgot Your Password?</a>
+                    </p>
+                    <button type="submit" class="button_account">Login</button>
+                    <p class="font-form_account font-signin">
+                        Haven't got an account? <a href="SignUp.html">Sign Up</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="wrapper_footer">
+            <a href="#"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
+            <div class="wrapper_footer-item">
+                <span>Our Food</span>
+                <a class="footer_item" href="menu.html?id=category1">Category 1</a>
+                <a class="footer_item" href="menu.html?id=category2">Category 2</a>
+            </div>
+            <div class="wrapper_footer-item">
+                <span>Contact</span>
+                <a class="footer_item" href="#">Order Tracker</a>
+                <a class="footer_item" href="#">Find a KFC</a>
+                <a class="footer_item" href="#">Contact Us</a>
+            </div>
+            <div class="wrapper_footer-item">
+                <span>Policy</span>
+                <a class="footer_item" href="#">Operation Policy</a>
+                <a class="footer_item" href="#">Terms And Conditions</a>
+            </div>
+            <div class="wrapper_footer-item">
+                <a class="footer_item" href="#"><i class='bx bxl-facebook'></i></a>
+                <a class="footer_item" href="#"><i class='bx bxl-twitter'></i></a>
+                <a class="footer_item" href="#"><i class='bx bxl-tiktok'></i></a>
+                <a class="footer_item" href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&#169;Copyright © 2023 KFC Vietnam</p>
+        </div>
+
+        <div class="modal js-modal">
+            <div class="modal-container js-modal-container">
+                <div class="modal-close js-modal-close">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+                <header class="modal-header">Forgot your password, huh? It happens. Let's reset it and get you back in
+                    the game.</header>
+                <div class="modal-body">
+                    <div class="label-form_account form-fgPw">
+                        <input type="text" id="resetEmail" class="input-form_account" name="resetEmail" required>
+                        <label for="resetEmail" class="label_input">Email:</label>
+                    </div>
+                    <button id="forgot-pass" class="button_account_signup">Send Password Reset Email</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            const buyBtns = document.querySelectorAll('.js-forgot-pass');
+            const modal = document.querySelector('.js-modal');
+            const modalclose = document.querySelector('.js-modal-close');
+            const modalContainer = document.querySelector(".js-modal-container");
+
+            function showBuyTickets() {
+                modal.classList.add('openModal');
+            }
+
+            function hideBuyTickets() {
+                modal.classList.remove('openModal');
+            }
+
+            for (const buyBtn of buyBtns) {
+                buyBtn.addEventListener('click', showBuyTickets);
+            }
+
+            modalclose.addEventListener('click', hideBuyTickets);
+            modal.addEventListener('click', hideBuyTickets);
+            modalContainer.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        </script>
+        <!-- xử lý phân quyền đăng nhập -->
+        <script src="../auth/login.js"></script>
+    </body>
+
+</html>

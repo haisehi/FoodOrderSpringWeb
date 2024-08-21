@@ -1,0 +1,142 @@
+/* Reset CSS styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    background-color: #fff; /* Trắng cho nền body */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+/* Left side styles */
+.body-left {
+    background-color: #ff0000; /* Màu đỏ cho nền left side */
+    width: 20%;
+    float: left;
+    height: auto; /* Sử dụng chiều cao 100% của màn hình */
+    padding: 20px;
+}
+
+.body-left a {
+    text-decoration: none;
+    list-style-type: none;
+    color: #fff; /* Màu trắng cho text */
+    font-size: 20px;
+    display: block;
+    padding: 10px 0;
+}
+
+.body-left ul {
+    list-style: none;
+}
+
+.menu-dacap {
+    display: none;
+}
+
+.body-left li:hover .menu-dacap {
+    display: block;
+}
+
+.body-left h2 {
+    color: #fff; /* Màu trắng cho tiêu đề */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Right side styles */
+.body-right {
+background-color: #fff;
+    height: auto;
+    width: 100%;
+    padding: 20px;
+}
+
+.header {
+    background-color: #ff0000; /* Màu đỏ cho header */
+    text-align: center;
+    padding: 10px 0;
+}
+
+.body {
+    padding: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #ff0000; /* Màu đỏ cho text */
+    margin-bottom: 20px;
+}
+
+.content-left {
+    float: left;
+    margin-right: 20px;
+}
+
+.content-right {
+    float: left;
+    margin-left: 20px;
+}
+
+bnt {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.change-btn ,
+.Add-bnt {
+    width: 20%;
+    height: 35px;
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff0000; /* Màu đỏ cho button */
+    cursor: pointer;
+    color: #fff; /* Màu trắng cho text */
+}
+
+.change-btn{
+	width: 40%;
+	margin: 2px 0;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+thead {
+    background-color: #ff0000; /* Màu đỏ cho background của header */
+    color: #fff; /* Màu trắng cho text trong header */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Màu nền xám nhạt cho các dòng chẵn */
+}
+

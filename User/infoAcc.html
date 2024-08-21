@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <link rel="stylesheet" href="./asset/css/header.css">
+    <link rel="stylesheet" href="./asset/css/footer.css">
+    <link rel="stylesheet" href="./asset/css/chitiettk.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <div id="headerPlaceholder"></div>
+    <script src="./header/header.js"></script>
+
+    <section class="wrapper_cttk">
+        <div class="content-left">
+            <img class="img_user" src="./asset/img/logo.png" alt="Logo">
+            <h2>XIN CHÀO <span id="userFirstName"></span></h2>
+            <h3>
+                <u>
+                    <button id="logoutButton"
+                        style="color: #fff; background-color: transparent; border: none; text-decoration: underline; cursor: pointer;">Đăng
+                        xuất</button>
+                </u>
+            </h3>
+            <h4>
+                <a href="order.html">Đơn hàng đã đặt</a>
+            </h4>
+            <h4>
+                <a href="address.html">Địa chỉ của bạn</a>
+            </h4>
+            <h4>
+                <a href="infoAcc.html">Chi tiết tài khoản</a>
+            </h4>
+        </div>
+
+        <div class="content-right">
+            <h2>CHI TIẾT TÀI KHOẢN</h2>
+            <form id="updateForm">
+                <div class="form-group">
+                    <label for="firstname">Họ</label><br>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Tên</label><br>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="phonenumber">Số điện thoại</label><br>
+                    <input type="number" id="phonenumber" name="phonenumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label><br>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <span>Giới tính</span><br>
+                    <select name="gender" id="gender">
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Ngày sinh</label><br>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div style="padding-top: 30px;">
+                    <center>
+                        <button type="submit" class="btn-datngay">Cập nhật tài khoản</button>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div class="wrapper_footer">
+        <a href="#"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
+        <div class="wrapper_footer-item">
+            <span>Our Food</span>
+            <a class="footer_item" href="menu.html?id=category1">Category 1</a>
+            <a class="footer_item" href="menu.html?id=category2">Category 2</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Contact</span>
+            <a class="footer_item" href="#">Order Tracker</a>
+            <a class="footer_item" href="#">Find a KFC</a>
+            <a class="footer_item" href="#">Contact Us</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <span>Policy</span>
+            <a class="footer_item" href="#">Operation Policy</a>
+            <a class="footer_item" href="#">Terms And Conditions</a>
+        </div>
+        <div class="wrapper_footer-item">
+            <a class="footer_item" href="#"><i class='bx bxl-facebook'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-twitter'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-tiktok'></i></a>
+            <a class="footer_item" href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&#169;Copyright © 2023 KFC Vietnam</p>
+    </div>
+
+    <script src="../auth/logout.js"></script>
+    <script src="../auth/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lấy ID người dùng từ localStorage
+            const userId = localStorage.getItem('id_customer');
+            
+            if (!userId) {
+                alert('User ID not found');
+                return;
+            }
+
+            // Fetch dữ liệu người dùng
+            fetch(`http://localhost:8080/api/v1/auth/customers/${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('userFirstName').textContent = data.firstname;
+                    document.getElementById('firstname').value = data.firstname;
+                    document.getElementById('lastname').value = data.lastname;
+                    document.getElementById('phonenumber').value = data.phonenumber;
+                    document.getElementById('email').value = data.email;
+                    document.getElementById('gender').value = data.gender;
+                    document.getElementById('date').value = data.date;
+                })
+                .catch(error => {
+                    console.error('Error fetching user data:', error);
+                });
+
+            // Cập nhật dữ liệu người dùng
+            document.getElementById('updateForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const updatedCustomer = {
+                    firstname: document.getElementById('firstname').value,
+                    lastname: document.getElementById('lastname').value,
+                    phonenumber: document.getElementById('phonenumber').value,
+                    email: document.getElementById('email').value,
+                    gender: document.getElementById('gender').value,
+                    date: document.getElementById('date').value
+                };
+
+                fetch(`http://localhost:8080/api/v1/auth/customers/${userId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedCustomer)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Customer updated successfully!');
+                })
+                .catch(error => {
+                    console.error('Error updating customer data:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./asset/css/Add-poster.css">
+        <title>ADD POSTER</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- body -->
+            <div class="body-left">
+                <h2>ADMIN PANEL</h2>
+                <ul>
+                    <button id="logoutButton" type="submit"
+                        style="color: #fff; background-color: transparent; border: none; text-decoration: underline; cursor: pointer;">
+                        Logout
+                    </button>
+    
+                    <a href="./Add-poster.html">
+                        <li> Add Poster</li>
+                    </a>
+                    <a href="./Add-Category-food.html">
+                        <li> Add Category Food</li>
+                    </a>
+                    <a href="./Add-Food.html">
+                        <li> Add Food</li>
+                    </a>
+                    <li id="order"> <a href="">Order management</a>
+                        <ul class="menu-dacap">
+                            <li><a href="./Order-management-party.html">Party</a></li>
+                            <li><a href="./Order-management-order.html">Order</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="body-right">
+                <div class="header">
+                    <img src="./asset/img/logo.png" alt="" style="width: 100px;">
+                </div>
+                <form method="post" action="/PosterController">
+                    <div class="body">
+                        <div class="content">
+                            <div class="content-left">
+                                <p>Select the image to add:</p>
+                                <input type="text" name="name_image" placeholder="name of poster">
+                                <p>Photo position:</p>
+                            </div>
+                            <div class="content-right">
+                                <p>
+                                    <input type="file" name="image">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bnt">
+                            <center>
+                                <button class="Add-bnt" type="submit" name="action" value="add">ADD</button>
+                            </center>
+                        </div>
+                    </div>
+                </form>
+                <div id="Result">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Replace the following rows with dynamic content -->
+                            <tr>
+                                <td>1</td>
+                                <td>Sample Poster</td>
+                                <td><img src="img/sample.png" alt="Sample Poster"
+                                        style="max-width: 100px; max-height: 100px;"></td>
+                                <td>
+                                    <form method="post" action="/PosterController">
+                                        <input type="hidden" name="id_image" value="1">
+                                        <input type="hidden" name="action" value="delete">
+                                        <button class="change-btn" type="submit">DELETE</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <!-- Add more rows here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- chức năng đăng xuất -->
+        <script src="../auth/logout.js"></script>
+        <!-- chức năng bảo vệ trang -->
+        <script src="../auth/auth.js"></script>
+    </body>
+
+</html>

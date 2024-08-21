@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./asset/css/Order-management-party.css">
+        <title>Party Management</title>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="body-left">
+                <h2>ADMIN PANEL</h2>
+                <ul>
+                    <button id="logoutButton" type="submit"
+                        style="color: #fff; background-color: transparent; border: none; text-decoration: underline; cursor: pointer;">
+                        Logout
+                    </button>
+    
+                    <a href="./Add-poster.html">
+                        <li> Add Poster</li>
+                    </a>
+                    <a href="./Add-Category-food.html">
+                        <li> Add Category Food</li>
+                    </a>
+                    <a href="./Add-Food.html">
+                        <li> Add Food</li>
+                    </a>
+                    <li id="order"> <a href="">Order management</a>
+                        <ul class="menu-dacap">
+                            <li><a href="./Order-management-party.html">Party</a></li>
+                            <li><a href="./Order-management-order.html">Order</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body-right">
+                <div class="header">
+                    <img src="./asset/img/logo.png" alt="Logo" style="width: 100px;">
+                </div>
+                <div class="body">
+                    <div class="content">
+                        <table id="partyTable">
+                            <thead>
+                                <tr>
+                                    <th>id_party</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Quantity</th>
+                                    <th>Address</th>
+                                    <th>Content</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be added dynamically by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Example data; replace with actual data retrieval method
+            const parties = [
+                {
+                    id_party: 1,
+                    customerEmail: "example1@example.com",
+                    customerPhone: "123456789",
+                    dateOrder: "2024-08-12",
+                    timeOrder: "10:00",
+                    quantity: 5,
+                    address: "123 Main St",
+                    content: "Party Content 1"
+                },
+                {
+                    id_party: 2,
+                    customerEmail: "example2@example.com",
+                    customerPhone: "987654321",
+                    dateOrder: "2024-08-13",
+                    timeOrder: "14:00",
+                    quantity: 3,
+                    address: "456 Oak St",
+                    content: "Party Content 2"
+                }
+            ];
+
+            function formatDate(dateString) {
+                if (!dateString) return "N/A";
+                const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+                const date = new Date(dateString);
+                return date.toLocaleDateString(undefined, options);
+            }
+
+            function loadPartyData() {
+                const tableBody = document.querySelector('#partyTable tbody');
+                parties.forEach(party => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                    <td>${party.id_party}</td>
+                    <td>${party.customerEmail}</td>
+                    <td>${party.customerPhone}</td>
+                    <td>${formatDate(party.dateOrder)}</td>
+                    <td>${party.timeOrder}</td>
+                    <td>${party.quantity}</td>
+                    <td>${party.address}</td>
+                    <td>${party.content}</td>
+                `;
+                    tableBody.appendChild(row);
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', loadPartyData);
+        </script>
+
+        <!-- chức năng đăng xuất -->
+        <script src="../auth/logout.js"></script>
+        <!-- chức năng bảo vệ trang -->
+        <script src="../auth/auth.js"></script>
+    </body>
+
+</html>

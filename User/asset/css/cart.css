@@ -1,0 +1,121 @@
+* {
+    scroll-behavior: smooth;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Custom scroll bar */
+html::-webkit-scrollbar {
+    width: 0.5rem;
+    background: #ccc;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 5rem;
+}
+
+/* Content wrapper */
+.wrapper_content {
+    min-height: 100vh;
+    margin-top: 180px;
+    margin-bottom: 120px;
+}
+
+.wrapper_cart {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    height: 100vh;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    background-color: #fff;
+}
+
+p {
+    color: #ff0000;
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .wrapper_content {
+        margin-top: 80px;
+    }
+
+    .wrapper_cart {
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    form {
+        padding: 15px;
+    }
+}

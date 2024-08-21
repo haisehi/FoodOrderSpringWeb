@@ -1,0 +1,173 @@
+*{
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+
+/* Custom scroll bar */
+html::-webkit-scrollbar {
+    width: 0.5rem;
+    background: #ccc;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 5rem;
+}
+
+/* Content wrapper */
+.wrapper_content {
+    min-height: 100vh;
+    margin-top: 180px;
+    margin-bottom: 120px;
+}
+
+/* Navbar menu */
+.menu {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    margin-top: 120px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 100px;
+    transition: 0.5s;
+    background-color: white;
+}
+
+.menu_nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    column-gap: 5rem;
+    height: 45px;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu_nav-itemt {
+    position: relative;
+    list-style: none;
+}
+
+.menu_nav a {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.menu_nav a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: red;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.4s all linear;
+}
+
+.menu_nav a:hover::after,
+.menu_nav .home-active::after {
+    width: 100%;
+}
+
+/* Content */
+.food {
+    margin-top: 50px;
+}
+
+.heading {
+    margin-top: 50px;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+}
+
+.food-container {
+    max-width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    margin-top: 2rem;
+}
+
+.box {
+    height: auto;
+    padding: 5px 0;
+    margin: 5px;
+    box-shadow: 1px 1px 5px 5px rgb(220, 220, 220);
+    display: flex;
+    flex-direction: column;
+}
+
+.box .box-img {
+    flex: 1;
+    cursor: pointer;
+}
+
+.box .box-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s;
+}
+
+.box .box-img img:hover {
+    transform: scale(1.05);
+}
+
+.box_price_title {
+    padding: 10px;
+}
+
+.title_product {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.price_product {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.content_product {
+    font-size: 10px;
+}
+
+.food-button_product_empty {
+    height: 35px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
+    background: rgb(123, 123, 123);
+    color: white;
+    cursor: not-allowed;
+    margin-top: 10px;
+}
+
+.food-button_product {
+    height: 35px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
+    background: red;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.food-button_product:hover {
+    background: rgb(232, 44, 44);
+}
