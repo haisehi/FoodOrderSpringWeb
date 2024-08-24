@@ -18,15 +18,15 @@
                 </button>
 
                 <a href="./Add-poster.html">
-                    <li> Add Poster</li>
+                    <li>Add Poster</li>
                 </a>
                 <a href="./Add-Category-food.html">
-                    <li> Add Category Food</li>
+                    <li>Add Category Food</li>
                 </a>
                 <a href="./Add-Food.html">
-                    <li> Add Food</li>
+                    <li>Add Food</li>
                 </a>
-                <li id="order"> <a href="#">Order management</a>
+                <li id="order"> <a href="">Order management</a>
                     <ul class="menu-dacap">
                         <li><a href="./Order-management-party.html">Party</a></li>
                         <li><a href="./Order-management-order.html">Order</a></li>
@@ -40,7 +40,7 @@
                 <img src="./asset/img/logo.png" alt="Logo" style="width: 100px;">
             </div>
             <div class="body">
-                <form id="addCategoryForm" method="post" action="http://localhost:8080/api/v1/auth/categories">
+                <form id="addCategoryForm">
                     <div class="content">
                         <div class="content-left">
                             <p>Select the image:</p>
@@ -81,6 +81,29 @@
     </div>
 
     <script>
+        document.getElementById('addCategoryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nameCategories = document.getElementById('name_categories').value;
+            const imageFile = document.getElementById('image_categories').files[0];
+            const imageFileName = imageFile.name; // Get the name of the image file
+
+            const formData = new FormData();
+            formData.append('name_categories', nameCategories);
+            formData.append('image_categories', imageFileName); // Send only the file name
+
+            fetch('http://localhost:8080/api/v1/auth/categories/add', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Category added successfully!');
+                    location.reload(); // Reload the page after successful addition
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
         // Fetch categories from the backend and display them
         fetch('http://localhost:8080/api/v1/auth/categories')
             .then(response => response.json())
@@ -91,45 +114,26 @@
                     row.innerHTML = `
                         <td>${category.idCategories}</td>
                         <td>${category.nameCategories}</td>
-                        <td><img src="../img/${category.imageCategories}" alt="${category.nameCategories}" style="max-width: 100px; max-height: 100px;"></td>
+                        <td><img src="../img/${category.imageCategories}" alt="${category.nameCategories}" style="max-width: 100px;"></td>
                         <td>
-                            <form method="get" action="./edit-category-form.html">
-                                <input type="hidden" name="id_categories" value="${category.idCategories}">
-                                <button class="change-btn" type="submit">EDIT</button>
-                            </form>
-                            <form method="post" action="http://localhost:8080/api/v1/auth/categories/${category.idCategories}">
-                                <input type="hidden" name="_method" value="delete">
-                                <button class="change-btn" type="submit">DELETE</button>
-                            </form>
+                            <button onclick="deleteCategory(${category.idCategories})">Delete</button>
                         </td>
                     `;
                     tableBody.appendChild(row);
                 });
-            });
-
-        // Handle form submission for adding category
-        document.getElementById('addCategoryForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const formData = new FormData(this);
-            fetch('http://localhost:8080/api/v1/auth/categories', {
-                method: 'POST',
-                body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                alert('Category added successfully!');
-                window.location.reload();
+            .catch(error => console.error('Error:', error));
+
+        function deleteCategory(id) {
+            fetch(`http://localhost:8080/api/v1/auth/categories/${id}`, {
+                method: 'DELETE'
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
+                .then(() => {
+                    alert('Category deleted successfully!');
+                    location.reload();
+                })
+                .catch(error => console.error('Error:', error));
+        }
     </script>
-    
-    <!-- chức năng đăng xuất -->
-    <script src="../auth/logout.js"></script>
-    <!-- chức năng bảo vệ trang -->
-     <script src="../auth/auth.js"></script>
 </body>
 </html>

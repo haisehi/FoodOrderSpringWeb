@@ -121,9 +121,6 @@
             }
         }
 
-        fetchCategories(); // Initial fetch on page load
-
-        // Example JavaScript to dynamically fetch and populate table
         async function fetchFoods() {
             try {
                 const response = await fetch('http://localhost:8080/api/v1/auth/foods');
@@ -138,7 +135,7 @@
                         <td>${food.nameFood}</td>
                         <td><img src="../img/${food.imageFood}" alt="Food Image" style="max-width: 100px; max-height: 100px;"></td>
                         <td>${food.price}</td>
-                        <td>${food.categoryFood ? food.categoryFood.name : 'Unknown'}</td>
+                        <td>${food.categoryFood}</td>
                         <td>
                             <form method="get" action="./edit-food-form.html">
                                 <input type="hidden" name="id_food" value="${food.idFood}">
@@ -157,7 +154,8 @@
             }
         }
 
-        fetchFoods(); // Initial fetch on page load
+        fetchCategories(); // Fetch categories on page load
+        fetchFoods(); // Fetch foods on page load
     </script>
 </body>
 

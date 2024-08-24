@@ -55,6 +55,7 @@
                                 <th>Total</th>
                                 <th>Quantity</th>
                                 <th>Address</th>
+                                <th>ID cart</th>
                                 <th>Time</th>
                                 <th>Status Pay</th>
                                 <th>Action</th>
@@ -94,6 +95,7 @@
                                 <td>${payment.total}</td>
                                 <td>${payment.quantity}</td>
                                 <td>${payment.address}</td>
+                                <td>${payment.cartItem.idCart}</td>
                                 <td>${payment.time}</td>
                                 <td>${payment.statusPay}</td>
                                 <td><button style = "width:auto" onclick="updatePaymentStatus(${payment.idPayment})">Processed</button></td>

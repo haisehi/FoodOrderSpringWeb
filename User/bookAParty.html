@@ -7,16 +7,17 @@
     <link href="./asset/css/bookAParty.css" rel="stylesheet">
     <link href="./asset/css/header.css" rel="stylesheet">
     <link href="./asset/css/footer.css" rel="stylesheet">
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Book A Party</title>
 </head>
 
 <body>
     <!-- Header -->
-    <!-- Replace with the static HTML for header content -->
-        <div id="headerPlaceholder"></div>
-        <script src="./header/header.js"></script>
+    <div id="headerPlaceholder"></div>
+    <script src="./header/header.js"></script>
 
     <div class="wrapper_book">
         <section class="content">
@@ -27,7 +28,9 @@
             <div class="content-all" id="content-left">
                 <div style="padding-top: 30px;">
                     <center>
-                        <b><p class="text-1" style="color: red; font-size: 18px;">BUỔI TIỆC KHÓ QUÊN CÙNG NHỮNG MÓN NGON TỪ ...</p></b>
+                        <b>
+                            <p class="text-1" style="color: red; font-size: 18px;">BUỔI TIỆC KHÓ QUÊN CÙNG NHỮNG MÓN NGON TỪ ...</p>
+                        </b>
                     </center>
                     <center>
                         <p class="text-2" style="color: rgb(0, 0, 0); font-size: 17px;">Chúng tôi sẵn sàng phục vụ mọi bữa tiệc của bạn.</p>
@@ -51,7 +54,9 @@
             <div class="content-all" id="content-right">
                 <div style="padding-top: 30px;">
                     <center>
-                        <b><p class="text-1" style="color: red; font-size: 18px;">BUỔI TIỆC KHÓ QUÊN CÙNG NHỮNG MÓN NGON TỪ ...</p></b>
+                        <b>
+                            <p class="text-1" style="color: red; font-size: 18px;">BUỔI TIỆC KHÓ QUÊN CÙNG NHỮNG MÓN NGON TỪ ...</p>
+                        </b>
                     </center>
                     <center>
                         <p class="text-2" style="color: rgb(0, 0, 0); font-size: 17px;">Chúng tôi sẵn sàng phục vụ mọi bữa tiệc của bạn.</p>
@@ -75,7 +80,6 @@
         <section class="menu">
             <h2>Thực đơn tiệc</h2>
             <ul class="menu_list">
-                <!-- Repeat for each food item -->
                 <li class="menu_list-item">
                     <a href="#">
                         <img class="menu_list-img" src="./asset/img/home-combo-2.jpg" alt="Food Image">
@@ -85,7 +89,6 @@
                 </li>
             </ul>
             <ul class="menu_list">
-                <!-- Repeat for each food item -->
                 <li class="menu_list-item">
                     <a href="#">
                         <img class="menu_list-img" src="./asset/img/home-combo-2.jpg" alt="Food Image">
@@ -95,7 +98,6 @@
                 </li>
             </ul>
             <ul class="menu_list">
-                <!-- Repeat for each food item -->
                 <li class="menu_list-item">
                     <a href="#">
                         <img class="menu_list-img" src="./asset/img/home-combo-2.jpg" alt="Food Image">
@@ -105,7 +107,6 @@
                 </li>
             </ul>
             <ul class="menu_list">
-                <!-- Repeat for each food item -->
                 <li class="menu_list-item">
                     <a href="#">
                         <img class="menu_list-img" src="./asset/img/home-combo-2.jpg" alt="Food Image">
@@ -118,7 +119,7 @@
 
         <section class="book_party">
             <h2>Đặt tiệc</h2>
-            <form action="/bookPartyController" method="post">
+            <form id="bookingForm" action="http://localhost:8080/api/v1/auth/bookparty/bookParty" method="post">
                 <div>
                     <div>
                         <img src="https://kfcvn-static.cognizantorderserv.com/images/email/birthdaybanner.jpg" alt="" style="width: 100%;">
@@ -126,16 +127,20 @@
                     <div style="display: flex; width: 100%;">
                         <div>
                             <div class="form-group">
-                                <b><h3 style="color: red; border-bottom: 1px solid #000">Thông tin liên hệ</h3></b>
+                                <b>
+                                    <h3 style="color: red; border-bottom: 1px solid #000">Thông tin liên hệ</h3>
+                                </b>
                             </div>
                             <div class="form-group">
                                 <label for="id_customer">Mã Người đặt</label>
-                                <input type="text" name="id_customer" id="id_customer" required>
+                                <input type="text" name="id_customer" id="id_customer" readonly>
                             </div>
                         </div>
                         <div>
                             <div class="form-group">
-                                <b><h3 style="color: red; border-bottom: 1px solid #000">Thông tin buổi tiệc</h3></b>
+                                <b>
+                                    <h3 style="color: red; border-bottom: 1px solid #000">Thông tin buổi tiệc</h3>
+                                </b>
                             </div>
                             <div class="form-group">
                                 <label for="dateOrder">Ngày</label>
@@ -147,10 +152,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="quantity">Số lượng</label>
-                                <select name="quantity" id="quantity" style="width: 104%;">
+                                <select name="quantity" id="quantity" style="width: 100%;">
                                     <option value="10">1-10</option>
                                     <option value="20">10-20</option>
-                                    <option value="20+">20+</option>
+                                    <option value="30">20+</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -163,24 +168,18 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <center>
-                            <p>Tôi đã đọc và đồng ý với <u><a href="#">chính sách bảo mật</a></u> & <u><a href="#">chính sách bảo mật thông tin của ...</a></u></p>
-                        </center>
-                        <center>
-                            <button type="submit" class="btn" name="action" value="bookParty">XÁC NHẬN ĐẶT TIỆC</button>
-                        </center>
-                    </div>
+                </div>
+                <div>
+                    <center>
+                        <p>Tôi đã đọc và đồng ý với <a href="#">Điều khoản dịch vụ</a></p>
+                        <button type="submit" class="btn-datngay">ĐẶT TIỆC</button>
+                    </center>
                 </div>
             </form>
         </section>
     </div>
 
     <!-- Footer -->
-    <!-- Include footer file here -->
-    <!-- Replace with the static HTML for footer content -->
-    <!-- Footer -->
-    <!-- Replace with the static HTML for footer content -->
     <div class="wrapper_footer">
         <a href="#"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
         <div class="wrapper_footer-item">
@@ -207,44 +206,22 @@
             <a class="footer_item" href="#"><i class='bx bxl-instagram'></i></a>
         </div>
     </div>
-    <!-- copyright -->
+    <!-- Copyright -->
     <div class="copyright">
         <p>&#169;Copyright © 2023 KFC Vietnam</p>
     </div>
 
-    <!-- JavaScript -->
-     <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
-         $("#datngay").click(function() {
-             $('html, body').animate({
-                 scrollTop: 2000
-             }, 800);
-         });
-         $("#datngay1").click(function() {
-             $('html, body').animate({
-                 scrollTop: 2000
-             }, 800);
-         });
-         var contentleft = document.getElementById("content-left");
-         var contentright = document.getElementById("content-right");
-         var btnleft = document.getElementById("btn-left");
-         var btnright = document.getElementById("btn-right");
- 
-         function openTCT() {
-             contentleft.style.transform = "translateX(50%)";
-             contentright.style.transform = "translateX(400%)";
-             btnleft.style.color = "#000";
-             btnright.style.color = "#949494";
-         }
- 
-         function openDHL() {
-             contentleft.style.transform = "translateX(300%)";
-             contentright.style.transform = "translateX(100%)";
-             btnleft.style.color = "#949494";
-             btnright.style.color = "#000";
-         }
-     </script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const idCustomerInput = document.getElementById("id_customer");
+            const idCustomer = localStorage.getItem("id_customer"); // Lấy id_customer từ localStorage
+            
+            if (idCustomer) {
+                idCustomerInput.value = idCustomer; // Điền vào input
+            }
+        });
+    </script>
+    
 </body>
 
 </html>
