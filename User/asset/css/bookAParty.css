@@ -80,7 +80,6 @@ h1, h2, h3 {
     background-color: #f2f2f2;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -134,4 +133,48 @@ input, textarea, select {
     border: none;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+/* Đảm bảo rằng danh sách các món ăn được hiển thị theo hàng ngang */
+#menuList {
+    display: flex; /* Sử dụng Flexbox để sắp xếp các mục theo hàng ngang */
+    flex-wrap: wrap; /* Cho phép các mục xuống dòng nếu không đủ không gian trên một hàng */
+    gap: 16px; /* Khoảng cách giữa các món ăn */
+    list-style: none; /* Loại bỏ dấu gạch đầu dòng của danh sách */
+    padding: 0; /* Loại bỏ padding của danh sách */
+    margin: 0; /* Loại bỏ margin của danh sách */
+}
+
+/* Cập nhật kiểu cho từng món ăn */
+.menu_list-item {
+    background-color: #fff; /* Màu nền cho từng mục */
+    border: 1px solid #ddd; /* Đường viền cho từng mục */
+    border-radius: 8px; /* Bo tròn góc của mục */
+    overflow: hidden; /* Ẩn các phần tử ngoài viền của mục */
+    width: calc(25% - 16px); /* Đặt chiều rộng cho mỗi mục, với khoảng cách */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho từng mục */
+    transition: transform 0.3s; /* Thêm hiệu ứng chuyển động khi hover */
+}
+
+.menu_list-item:hover {
+    transform: scale(1.05); /* Tăng kích thước khi hover */
+}
+
+/* Cập nhật kiểu cho hình ảnh */
+.menu_list-img {
+    width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của mục */
+    height: auto; /* Đảm bảo tỷ lệ khung hình của hình ảnh được giữ nguyên */
+    display: block; /* Loại bỏ khoảng trắng dưới hình ảnh */
+}
+
+/* Cập nhật kiểu cho các tiêu đề */
+.menu_list-item h3 {
+    margin: 0;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Cập nhật kiểu cho giá món ăn */
+.menu_list-item h3.price {
+    color: red; /* Màu sắc của giá */
 }

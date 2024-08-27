@@ -25,9 +25,9 @@
         <div class="content-left">
             <img class="img_user" src="./asset//img/logo.png" alt="User Image">
             <h2>XIN CHÀO !!! <span id="username"></span></h2>
-            <h3>
+            <h4>
                 <u><a href="login.html" id="logoutButton">Đăng xuất</a></u>
-            </h3>
+            </h4>
             <h4><a href="order.html">Đơn hàng đã đặt</a></h4>
             <h4><a href="#">Địa chỉ của bạn</a></h4>
             <h4><a href="infoAcc.html">Chi tiết tài khoản</a></h4>
@@ -45,6 +45,7 @@
                         <th>Quantity</th>
                         <th>Address</th>
                         <th>Time</th>
+                        <th>ID cart</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -106,6 +107,7 @@
                             <td>${payment.quantity}</td>
                             <td>${payment.address}</td>
                             <td>${payment.time ? new Date(payment.time).toLocaleString() : 'N/A'}</td>
+                            <td>${payment.idCart}</td>
                             <td>${payment.statusPay === 0 ? 'Not Processed' : 'Processed'}</td>
                         `;
                         tableBody.appendChild(row);

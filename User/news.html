@@ -4,11 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
+    <title>Service</title>
     <link href="./asset/css/content.css" rel="stylesheet">
     <link href="./asset/css/news.css" rel="stylesheet">
     <link href="./asset/css/header.css" rel="stylesheet">
     <link href="./asset/css/footer.css" rel="stylesheet">
+    <style>
+        .img {
+            width: 100%; /* Hoặc điều chỉnh kích thước tùy ý */
+            height: 500px; /* Đặt chiều cao của phần tử chứa ảnh */
+            overflow: hidden; /* Ẩn phần ảnh bên ngoài khung chứa */
+        }
+
+        .img img {
+            width: 100%;
+            height: auto; /* Đảm bảo ảnh không bị méo mó */
+            object-fit: cover; /* Cắt ảnh để phù hợp với khung */
+            clip-path: inset(0 0 50% 0); /* Cắt nửa dưới ảnh */
+        }
+    </style>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -22,7 +36,7 @@
 
     <div class="wrapper_new">
         <div class="img">
-            <img src="./asset/img/our-story.jpg" alt="" style="width: 100%;">
+            <img src="./asset/img/PizzaDeliverySivir.jpg" alt="" style="width: 100%;">
         </div>
 
         <div class="content">
