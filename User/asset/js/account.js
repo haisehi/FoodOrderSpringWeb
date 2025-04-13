@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch dữ liệu người dùng
-    fetch(`http://localhost:8080/api/v1/auth/customers/${userId}`)
+    fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/customers/${userId}`)
         .then(response => response.json())
         .then(data => {
             document.getElementById('userFirstName').textContent = data.firstname;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             date: document.getElementById('date').value
         };
 
-        fetch(`http://localhost:8080/api/v1/auth/customers/${userId}`, {
+        fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/customers/${userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

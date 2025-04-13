@@ -80,7 +80,7 @@
             fetchPayments();
 
             function fetchPayments() {
-                fetch('http://localhost:8080/api/v1/auth/cart/payments') // Adjust API endpoint as necessary
+                fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/cart/payments') // Adjust API endpoint as necessary
                     .then(response => response.json())
                     .then(data => {
                         const tableBody = document.getElementById('paymentTableBody');
@@ -106,7 +106,7 @@
             }
 
             window.updatePaymentStatus = function (paymentId) {
-                fetch(`http://localhost:8080/api/v1/auth/cart/update_status/${paymentId}`, {
+                fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/cart/update_status/${paymentId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

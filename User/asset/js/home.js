@@ -1,6 +1,6 @@
 // Hàm để lấy dữ liệu từ API và hiển thị trên trang web
 function fetchPosters() {
-    fetch('http://localhost:8080/api/v1/auth/posters')
+    fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/posters')
         .then(response => response.json())
         .then(data => {
             const swiperWrapper = document.querySelector('.swiper-wrapper');
@@ -11,7 +11,7 @@ function fetchPosters() {
                 slide.classList.add('swiper-slide');
 
                 slide.innerHTML = `
-                <img src="../img/${poster.image}" alt="${poster.nameImage}">
+                <img src="${poster.image}" alt="${poster.nameImage}">
             `;
 
                 swiperWrapper.appendChild(slide);
@@ -29,7 +29,7 @@ function fetchPosters() {
 }
 
 function fetchCategories() {
-    fetch('http://localhost:8080/api/v1/auth/categories')
+    fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/categories')
         .then(response => response.json())
         .then(data => {
             const categoryContainer = document.querySelector('.category-container');
@@ -41,7 +41,7 @@ function fetchCategories() {
                 categoryBox.innerHTML = `
         <div class="box">
             <div class="box-img">
-                <img src="../img/${category.imageCategories}" alt="${category.nameCategories}">
+                <img src="${category.imageCategories}" alt="${category.nameCategories}">
             </div>
             <div class="box_price_title">
                 <h3 class="title_product">${category.nameCategories}</h3>
@@ -56,7 +56,7 @@ function fetchCategories() {
 }
 
 function fetchFoods() {
-    fetch('http://localhost:8080/api/v1/auth/foods')
+    fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/foods')
         .then(response => response.json())
         .then(data => {
             const foodContainer = document.querySelector('.food-container');
@@ -71,7 +71,7 @@ function fetchFoods() {
 
                 foodBox.innerHTML = `
         <div class="box-img">
-            <img src="../img/${food.imageFood}" alt="${food.nameFood}">
+            <img src="${food.imageFood}" alt="${food.nameFood}">
         </div>
         <div class="box_price_title">
             <h3 class="title_product">${food.nameFood}</h3>

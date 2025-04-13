@@ -8,7 +8,7 @@ function addToCart(foodId) {
     }
 
     // Gửi yêu cầu POST đến API
-    fetch(`http://localhost:8080/api/v1/auth/cart/add/${foodId}/${customerId}`, {
+    fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/cart/add/${foodId}/${customerId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchCategories() {
-    fetch('http://localhost:8080/api/v1/auth/categories')
+    fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/categories')
         .then(response => response.json())
         .then(categories => {
             const categoryNav = document.getElementById('categoryNav');
@@ -56,7 +56,7 @@ function fetchCategories() {
 }
 
 function fetchFoodsByCategory(categoryId) {
-    fetch(`http://localhost:8080/api/v1/auth/foods/category/${categoryId}`)
+    fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/foods/category/${categoryId}`)
         .then(response => response.json())
         .then(foods => {
             const foodContainer = document.getElementById(`category-${categoryId}`);
@@ -65,7 +65,7 @@ function fetchFoodsByCategory(categoryId) {
                 foodBox.classList.add('box');
                 foodBox.innerHTML = `
                 <div class="box-img">
-                    <img src="../img/${food.imageFood}" alt="${food.nameFood}">
+                    <img src="${food.imageFood}" alt="${food.nameFood}">
                 </div>
                 <div class="box_price_title">
                     <h3 class="title_product">${food.nameFood}</h3>

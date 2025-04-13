@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Get customerId from localStorage
     const customerId = localStorage.getItem('id_customer');
-    fetch(`http://localhost:8080/api/v1/auth/cart/payments?customerId=${customerId}`)
+    fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/cart/payments?customerId=${customerId}`)
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('orderTableBody');

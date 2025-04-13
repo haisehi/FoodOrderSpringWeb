@@ -25,7 +25,7 @@ async function handleFormSubmission(event) {
 
 
     try {
-        const response = await fetch('http://localhost:8080/api/v1/auth/bookparty/add?customerId=' + encodeURIComponent(data.customerId), {
+        const response = await fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/bookparty/add?customerId=' + encodeURIComponent(data.customerId), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     try {
         // Gọi API để lấy dữ liệu thực đơn
-        const response = await fetch('http://localhost:8080/api/v1/auth/foods');
+        const response = await fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/foods');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             listItem.innerHTML = `
                             <a href="#">
-                                <img class="menu_list-img" src="../img/${food.imageFood}" alt="${food.nameFood}">
+                                <img class="menu_list-img" src="${food.imageFood}" alt="${food.nameFood}">
                                 <h3>${food.nameFood}</h3>
                                 <h3 class="price">${food.price} VND</h3>
                             </a>

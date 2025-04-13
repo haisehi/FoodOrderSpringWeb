@@ -1,5 +1,5 @@
 document.getElementById('logoutButton').addEventListener('click', function() {
-    fetch('http://localhost:8080/api/v1/auth/logout', {
+    fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

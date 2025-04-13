@@ -11,7 +11,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
         date: document.getElementById('date').value
     };
 
-    fetch('http://localhost:8080/api/v1/auth/register', {
+    fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

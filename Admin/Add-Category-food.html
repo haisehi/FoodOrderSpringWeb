@@ -92,7 +92,7 @@
             formData.append('name_categories', nameCategories);
             formData.append('image_categories', imageFileName); // Send only the file name
 
-            fetch('http://localhost:8080/api/v1/auth/categories/add', {
+            fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/categories/add', {
                 method: 'POST',
                 body: formData
             })
@@ -105,7 +105,7 @@
         });
 
         // Fetch categories from the backend and display them
-        fetch('http://localhost:8080/api/v1/auth/categories')
+        fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/categories')
             .then(response => response.json())
             .then(data => {
                 const tableBody = document.getElementById('categoryTableBody');
@@ -125,7 +125,7 @@
             .catch(error => console.error('Error:', error));
 
         function deleteCategory(id) {
-            fetch(`http://localhost:8080/api/v1/auth/categories/${id}`, {
+            fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/categories/${id}`, {
                 method: 'DELETE'
             })
                 .then(() => {

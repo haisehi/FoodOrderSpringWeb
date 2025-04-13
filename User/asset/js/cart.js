@@ -10,7 +10,7 @@ function fetchCartItems() {
         return;
     }
 
-    fetch(`http://localhost:8080/api/v1/auth/cart?customerId=${customerId}`)
+    fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/cart?customerId=${customerId}`)
         .then(response => response.json())
         .then(cartItems => {
             const cartContent = document.getElementById('cart-content');
@@ -51,7 +51,7 @@ function fetchCartItems() {
 }
 
 function removeFromCart(cartItemId) {
-    fetch(`http://localhost:8080/api/v1/auth/cart/remove/${cartItemId}`, {
+    fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/cart/remove/${cartItemId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ function processPayment() {
         return;
     }
 
-    fetch(`http://localhost:8080/api/v1/auth/cart/checkout/${customerId}?address=${encodeURIComponent(address)}`, {
+    fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/cart/checkout/${customerId}?address=${encodeURIComponent(address)}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
