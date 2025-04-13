@@ -10,7 +10,7 @@ document.getElementById('logoutButton').addEventListener('click', function() {
         if (response.ok) {
             localStorage.removeItem('access_token'); // Xóa token khỏi localStorage
             localStorage.removeItem('id_customer'); // Xóa token khỏi localStorage
-            window.location.href = '../User/home.html'; // Chuyển hướng về trang chính sau khi đăng xuất thành công
+            window.location.href = '../User/index.html'; // Chuyển hướng về trang chính sau khi đăng xuất thành công
         } else {
             console.error('Logout failed');
         }
