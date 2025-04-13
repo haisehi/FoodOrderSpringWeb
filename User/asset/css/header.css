@@ -29,7 +29,7 @@ a{
 }
 .header_section{
     background-color: var(--white-color);
-    width: 62.50rem;
+    /* width: 62.50rem; */
     margin: 0px 150px;
     padding: 11px 15px;
     display: flex;
@@ -79,29 +79,48 @@ a{
 
 /* Responsive Web Design */
 @media screen and (max-width: 768px) {
-    .header_section {
-        margin: 0 20px;
-    }
-
     .navbar_headerLeft {
-        width: 50%;
-    }
-
-    .navbar_headerRight {
-        width: 50%;
-        justify-content: space-between;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .navbar_wrp_item {
-        flex-direction: column;
-        text-align: center;
+        display: flex;
+        flex-wrap: nowrap; /* Ngăn item xuống dòng */
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none; /* Ẩn thanh cuộn Firefox */
+        -ms-overflow-style: none; /* Ẩn thanh cuộn IE 10+ */
+    }
+
+    .navbar_wrp_item::-webkit-scrollbar {
+        display: none; /* Ẩn thanh cuộn trên Chrome/Safari */
+    }
+
+    .navbar_wrp_item a {
+        flex: 0 0 auto; /* Không co lại */
+        margin-right: 15px;
     }
 
     .navbar_item {
-        margin-bottom: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        list-style: none;
+        white-space: nowrap;
+        padding: 10px 5px;
     }
 
-    .icon_navbarHeaderRight {
-        font-size: 1.25rem;
+    .header_section {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 10px;
+        padding: 10px;
+    }
+
+    .navbar_headerRight {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
     }
 }

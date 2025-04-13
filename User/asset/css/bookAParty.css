@@ -5,9 +5,16 @@
     padding: 0;
 }
 
-/* Page layout */
+/* Layout and responsiveness */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Wrapper */
 .wrapper_book {
-    margin-top: 120px;
+    margin-top: 20px;
+    padding: 0 10px;
 }
 
 /* Heading styles */
@@ -16,165 +23,261 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
-/* Button styles */
+/* Button box styles */
 .btn-box {
     display: flex;
+    flex-direction: column; /* Stack buttons vertically on mobile */
     border-bottom: 1px solid #ccc;
-    width: 800px;
-    margin: auto;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .btn-box button {
-    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px 0;
+    background-color: #f44336;
+    color: white;
     border: none;
-    outline: none;
+    border-radius: 5px;
     cursor: pointer;
-    padding: 15px 15px;
-    margin: auto;
-    font-size: 20px;
-    font-weight: bold;
-    color: #949494;
+    transition: background-color 0.3s ease;
 }
 
 .btn-box button:hover {
-    border-bottom: 1px solid red;
+    background-color: #d32f2f;
 }
 
-#btn-left {
-    color: #000;
-}
-
-.btn-datngay {
-    background-color: red;
-    font-size: 15px;
-    font-weight: bold;
-    color: #ffffff;
-    margin: 5px;
-    width: 120px;
-    height: 30px;
-    display: block;
-    border-radius: 10px;
-    text-decoration: none;
-    border: none;
-}
-
-/* Content styles */
-.content {
-    position: relative;
-    width: 100%;
-    height: 550px;
-    overflow: hidden;
-}
-
+/* Content sections */
 .content-all {
-    position: absolute;
-    justify-content: center;
-    transform: translateX(350%);
-}
-
-#content-left {
-    transform: translateX(44%);
-}
-
-.menu {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    display: grid;
-    gap: 20px;
-    padding: 20px;
-}
-
-.menu_list-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.menu_list-img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-p {
-    margin-bottom: 5px;
-    color: #000;
-}
-
-.book_party {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-}
-
-.form-group {
-    margin-bottom: 10px;
-    width: 550px;
-    padding-left: 100px;
-    margin-top: 30px;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-.btn {
-    background-color: red;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    border: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-/* Đảm bảo rằng danh sách các món ăn được hiển thị theo hàng ngang */
-#menuList {
-    display: flex; /* Sử dụng Flexbox để sắp xếp các mục theo hàng ngang */
-    flex-wrap: wrap; /* Cho phép các mục xuống dòng nếu không đủ không gian trên một hàng */
-    gap: 16px; /* Khoảng cách giữa các món ăn */
-    list-style: none; /* Loại bỏ dấu gạch đầu dòng của danh sách */
-    padding: 0; /* Loại bỏ padding của danh sách */
-    margin: 0; /* Loại bỏ margin của danh sách */
-}
-
-/* Cập nhật kiểu cho từng món ăn */
-.menu_list-item {
-    background-color: #fff; /* Màu nền cho từng mục */
-    border: 1px solid #ddd; /* Đường viền cho từng mục */
-    border-radius: 8px; /* Bo tròn góc của mục */
-    overflow: hidden; /* Ẩn các phần tử ngoài viền của mục */
-    width: calc(25% - 16px); /* Đặt chiều rộng cho mỗi mục, với khoảng cách */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho từng mục */
-    transition: transform 0.3s; /* Thêm hiệu ứng chuyển động khi hover */
-}
-
-.menu_list-item:hover {
-    transform: scale(1.05); /* Tăng kích thước khi hover */
-}
-
-/* Cập nhật kiểu cho hình ảnh */
-.menu_list-img {
-    width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của mục */
-    height: auto; /* Đảm bảo tỷ lệ khung hình của hình ảnh được giữ nguyên */
-    display: block; /* Loại bỏ khoảng trắng dưới hình ảnh */
-}
-
-/* Cập nhật kiểu cho các tiêu đề */
-.menu_list-item h3 {
-    margin: 0;
-    padding: 8px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-/* Cập nhật kiểu cho giá món ăn */
-.menu_list-item h3.price {
-    color: red; /* Màu sắc của giá */
+.text-1, .text-2 {
+    font-size: 18px;
+}
+
+.text-1 {
+    color: red;
+    font-weight: bold;
+}
+
+.text-2 {
+    color: #000;
+}
+
+/* Image section */
+.content-all img {
+    width: 100%;
+    max-width: 150px;
+    margin: 10px;
+}
+
+/* Book Now button */
+.btn-datngay {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-datngay:hover {
+    background-color: #d32f2f;
+}
+
+/* Menu section */
+.menu {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.menu_list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid layout for menu items */
+    gap: 20px;
+}
+
+.menu_list-item {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.menu_list-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.menu_list-item h3 {
+    font-size: 18px;
+    color: #333;
+    padding: 10px 0;
+}
+
+.price {
+    color: #f44336;
+    font-weight: bold;
+}
+
+/* Booking section */
+.book_party {
+    margin-top: 40px;
+    padding: 0 15px;
+}
+
+.book_party h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="date"], input[type="time"], select, textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #d32f2f;
+}
+
+/* Footer styles */
+.wrapper_footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.wrapper_footer-item {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+}
+
+.wrapper_footer-item span {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer_item {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer_item:hover {
+    color: #f44336;
+}
+
+/* Social media icons */
+.wrapper_footer-item a {
+    margin: 5px;
+    font-size: 20px;
+}
+
+/* Copyright styles */
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    /* Adjust button layout for small screens */
+    .btn-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-all {
+        padding: 0 10px;
+    }
+
+    .menu_list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .book_party h2 {
+        font-size: 20px;
+    }
+
+    /* Make form elements more responsive */
+    input[type="date"], input[type="time"], select, textarea {
+        width: 100%;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 18px;
+    }
+
+    .menu_list {
+        grid-template-columns: 1fr;
+    }
+
+    .menu_list-item h3 {
+        font-size: 16px;
+    }
+
+    .btn-box button {
+        width: 100%;
+    }
+
+    .footer_item {
+        font-size: 14px;
+    }
 }

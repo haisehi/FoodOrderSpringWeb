@@ -118,3 +118,38 @@ select {
 .content-right input:hover {
   border-bottom: 2px solid rgb(200, 0, 0);
 }
+
+/* Responsive (dưới 768px) */
+@media (max-width: 768px) {
+  .wrapper_cttk {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .content-left,
+  .content-right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .img_user {
+    width: 80px;
+  }
+
+  .content-left h2 {
+    font-size: 18px;
+  }
+
+  .btn-datngay {
+    width: 100%;
+    font-size: 14px;
+  }
+}

@@ -37,7 +37,7 @@ function fetchCategories() {
 
             data.forEach(category => {
                 const categoryBox = document.createElement('a');
-                categoryBox.href = `menu.html?id=${category.idCategories}`; // Thay đổi URL để truyền ID danh mục
+                categoryBox.href = `/User/menu.html?id=${category.idCategories}`; // Thay đổi URL để truyền ID danh mục
                 categoryBox.innerHTML = `
         <div class="box">
             <div class="box-img">

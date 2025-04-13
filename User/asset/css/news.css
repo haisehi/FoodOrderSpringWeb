@@ -22,3 +22,32 @@
 	border-radius: 15px;
 }
 
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .content_item {
+        width: 100%; /* Trên mobile, mỗi phần tử chiếm 100% chiều rộng */
+    }
+
+    .ee {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ee img {
+        width: 80%; /* Giảm kích thước ảnh trên màn hình nhỏ */
+    }
+
+    .wrapper_footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper_footer-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .wrapper_footer-item i {
+        font-size: 30px;
+    }
+}

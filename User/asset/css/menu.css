@@ -171,3 +171,60 @@ html::-webkit-scrollbar-thumb {
 .food-button_product:hover {
     background: rgb(232, 44, 44);
 }
+
+/* Responsive chỉnh menu trên mobile */
+@media (max-width: 768px) {
+    .menu {
+        margin-top: 135px;
+        padding: 10px 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+    }
+
+    .menu::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+
+    .menu_nav {
+        position: static;
+        display: inline-flex;
+        gap: 1.5rem;
+        border: none;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .menu_nav-itemt,
+    .menu_nav-item {
+        display: inline-block;
+        padding: 5px 10px;
+    }
+
+    .menu_nav a {
+        font-size: 14px;
+        padding: 5px 10px;
+        white-space: nowrap;
+    }
+
+    .wrapper_content {
+        margin-top: 200px; /* tăng để tránh bị đè */
+    }
+
+    .food-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .title_product,
+    .price_product {
+        font-size: 0.9rem;
+    }
+
+    .food-button_product {
+        font-size: 16px;
+        height: 30px;
+    }
+}

@@ -186,3 +186,47 @@ header.modal-header {
 	margin: 0;
 }
 
+@media (max-width: 768px) {
+	.wrapper_loginOrSignUp{
+		height: 175vh;	
+	}
+  
+	.img_login {
+	  display: none;
+	}
+  
+	.form {
+	  width: 70%;
+	}
+	.form_account{
+		width: 100%;
+		height: 1200px;
+
+	}
+  
+	.button_account,
+	.button_account_signup {
+	  padding: 15px;
+	  font-size: 18px;
+	}
+  
+	.label_input {
+	  font-size: 14px;
+	}
+  
+	.label-form_account {
+	  margin-bottom: 15px;
+	}
+  
+	.forgot_pwd {
+	  font-size: 14px;
+	}
+  
+	.font-form_account {
+	  font-size: 14px;
+	}
+  
+	.font-signin {
+	  font-size: 14px;
+	}
+  }

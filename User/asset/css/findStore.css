@@ -69,3 +69,48 @@
 .input-form_FindStore:focus ~.label_input{
 	font-size: 10px;
 }
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .wrapper_FindStore {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form_FindStore {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .img_FindStore {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .label-form_FindStore {
+        font-size: 1.6rem;
+    }
+
+    .input-form_FindStore {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .button_form_FindStore {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .label-form_FindStore {
+        font-size: 1.4rem;
+    }
+
+    .button_form_FindStore {
+        font-size: 13px;
+    }
+
+    .input-form_FindStore {
+        font-size: 0.9rem;
+    }
+}

@@ -115,35 +115,28 @@ display: flex;
 
 /* Responsive Web Design */
 @media screen and (max-width: 768px) {
-    .wrapper_content {
-        margin-bottom: 50px;
-    }
-
-    .content_swiper {
-        height: 400px;
-    }
-
-    .swiper-button-next, .swiper-button-prev {
-        height: 30px;
-        width: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 16px;
-    }
-
-    .swiper-slide img {
+    .wrapper_content{
         height: auto;
+        margin-bottom: 300px;
+    }
+    .content_swiper {
+        height: 450px;
     }
 
-    .food-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    .swiper-slide {
+        margin-top: 60px;
     }
 
-    .box {
-        height: 250px;
+    .heading {
+        font-size: 1rem;
+        padding: 0 10px;
+        text-align: center;
     }
 
-    .box .box-img {
-        height: 180px;
+    .food-container,
+    .category-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        padding: 0 10px;
     }
 }
