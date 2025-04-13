@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <nav class="navbar_headerLeft">
                         <ul class="navbar_wrp_item">
                             <!-- logo -->
-                            <a href="index.html"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
+                            <a href="../../index.html"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
                             <a href="menu.html">
                                 <li class="navbar_item">MENU</li>
                             </a>
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <nav class="navbar_headerLeft">
                         <ul class="navbar_wrp_item">
                             <!-- logo -->
-                            <a href="index.html"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
+                            <a href="../../index.html"><img class="logo" alt="logo" src="./asset/img/logo1.jpg" /></a>
                             <a href="menu.html">
                                 <li class="navbar_item">MENU</li>
                             </a>
