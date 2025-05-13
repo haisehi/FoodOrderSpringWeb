@@ -46,18 +46,18 @@
                         <div class="content">
                             <div class="content-left">
                                 <p>Select the image to add:</p>
-                                <input type="text" name="name_image" placeholder="name of poster">
+                                <input type="text" id="name_image" name="name_image" placeholder="name of poster">
                                 <p>Photo position:</p>
                             </div>
                             <div class="content-right">
                                 <p>
-                                    <input type="file" name="image">
+                                    <input type="text" id="image" name="image" placeholder="image of poster">
                                 </p>
                             </div>
                         </div>
                         <div class="bnt">
                             <center>
-                                <button class="Add-bnt" type="submit" name="action" value="add">ADD</button>
+                               <button class="Add-bnt" type="submit">ADD</button>
                             </center>
                         </div>
                     </div>
@@ -98,6 +98,69 @@
         <script src="../auth/logout.js"></script>
         <!-- chức năng bảo vệ trang -->
         <script src="../auth/auth.js"></script>
+        <script>
+        // Thêm poster
+        document.getElementById('addPosterForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const imageUrl = document.getElementById('image').value;
+            const nameImage = document.getElementById('name_image').value;
+
+            const posterData = {
+                image: imageUrl,
+                nameImage: nameImage
+            };
+
+            fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/posters', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(posterData)
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error("Failed to add poster");
+                    return response.json();
+                })
+                .then(data => {
+                    alert('Poster added successfully!');
+                    location.reload();
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Hiển thị tất cả posters
+        fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/posters')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('posterTableBody');
+                data.forEach(poster => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${poster.idImage}</td>
+                        <td><img src="${poster.image}" alt="${poster.nameImage}" style="max-width: 100px;"></td>
+                        <td>${poster.nameImage}</td>
+                        <td>
+                            <button onclick="deletePoster(${poster.idImage})">Delete</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+        // Xoá poster theo ID
+        function deletePoster(id) {
+            if (confirm("Are you sure you want to delete this poster?")) {
+                fetch(`https://backendspringfoodweb.onrender.com/api/v1/auth/posters/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(() => {
+                        alert('Poster deleted successfully!');
+                        location.reload();
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
     </body>
 
 </html>

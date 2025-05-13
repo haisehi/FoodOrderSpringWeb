@@ -48,7 +48,7 @@
                         </div>
                         <div class="content-right">
                             <p>
-                                <input type="file" id="image_categories" name="image_categories" required>
+                                <input type="text" id="image_categories" name="image_categories" placeholder="Enter image URL" required>
                             </p>
                             <p>
                                 <input type="text" id="name_categories" name="name_categories" required>
@@ -83,28 +83,28 @@
     <script src="../auth/logout.js"></script>
     <script src="../auth/auth.js"></script>
     <script>
-        document.getElementById('addCategoryForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+document.getElementById('addCategoryForm').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-            const nameCategories = document.getElementById('name_categories').value;
-            const imageFile = document.getElementById('image_categories').files[0];
-            const imageFileName = imageFile.name; // Get the name of the image file
+    const nameCategories = document.getElementById('name_categories').value;
+    const imageUrl = document.getElementById('image_categories').value;
 
-            const formData = new FormData();
-            formData.append('name_categories', nameCategories);
-            formData.append('image_categories', imageFileName); // Send only the file name
+    const formData = new FormData();
+    formData.append('name_categories', nameCategories);
+    formData.append('image_categories', imageUrl); // Gửi URL ảnh thay vì file name
 
-            fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/categories/add', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    alert('Category added successfully!');
-                    location.reload(); // Reload the page after successful addition
-                })
-                .catch(error => console.error('Error:', error));
-        });
+    fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/categories/add', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert('Category added successfully!');
+            location.reload();
+        })
+        .catch(error => console.error('Error:', error));
+});
+
 
         // Fetch categories from the backend and display them
         fetch('https://backendspringfoodweb.onrender.com/api/v1/auth/categories')
@@ -116,7 +116,7 @@
                     row.innerHTML = `
                         <td>${category.idCategories}</td>
                         <td>${category.nameCategories}</td>
-                        <td><img src="../img/${category.imageCategories}" alt="${category.nameCategories}" style="max-width: 100px;"></td>
+                        <td><img src="${category.imageCategories}" alt="${category.nameCategories}" style="max-width: 100px;"></td>
                         <td>
                             <button onclick="deleteCategory(${category.idCategories})">Delete</button>
                         </td>
